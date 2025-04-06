@@ -2,11 +2,12 @@ import asyncio
 import sys
 from pathlib import Path
 
-# Add the examples directory to Python path
-sys.path.append(str(Path(__file__).parent.parent))
+# Add the src and examples directories to Python path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 import config  # This will load the API key
 
-from .manager import FinancialResearchManager
+from financial_research_agent.manager import FinancialResearchManager
 
 
 # Entrypoint for the financial bot example.
