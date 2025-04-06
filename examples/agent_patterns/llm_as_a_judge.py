@@ -1,6 +1,12 @@
 from __future__ import annotations
 
 import asyncio
+import sys
+from pathlib import Path
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent))
+import config  # This will load the API key
 from dataclasses import dataclass
 from typing import Literal
 
@@ -32,7 +38,7 @@ evaluator = Agent[None](
     instructions=(
         "You evaluate a story outline and decide if it's good enough."
         "If it's not good enough, you provide feedback on what needs to be improved."
-        "Never give it a pass on the first try."
+        
     ),
     output_type=EvaluationFeedback,
 )

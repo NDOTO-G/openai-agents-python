@@ -4,6 +4,12 @@ import shutil
 import subprocess
 import time
 from typing import Any
+import sys
+from pathlib import Path
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+import config  # This will load the API key
 
 from agents import Agent, Runner, gen_trace_id, trace
 from agents.mcp import MCPServer, MCPServerSse

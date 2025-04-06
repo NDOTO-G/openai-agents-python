@@ -1,6 +1,12 @@
 from __future__ import annotations
 
 import asyncio
+import sys
+from pathlib import Path
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+import config  # This will load the API key
 from typing import TYPE_CHECKING
 
 import numpy as np
@@ -13,6 +19,7 @@ from textual.widgets import Button, RichLog, Static
 from typing_extensions import override
 
 from agents.voice import StreamedAudioInput, VoicePipeline
+from agents import Agent, Runner
 
 # Import MyWorkflow class - handle both module and package use cases
 if TYPE_CHECKING:

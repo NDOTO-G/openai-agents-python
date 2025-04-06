@@ -1,9 +1,15 @@
 import asyncio
+import sys
+from pathlib import Path
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+import config  # This will load the API key
 import random
 
 import numpy as np
 
-from agents import Agent, function_tool
+from agents import Agent, function_tool, Runner
 from agents.extensions.handoff_prompt import prompt_with_handoff_instructions
 from agents.voice import (
     AudioInput,

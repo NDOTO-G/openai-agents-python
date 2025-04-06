@@ -1,8 +1,18 @@
+import asyncio
+import sys
+from pathlib import Path
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent))
+import config  # This will load the API key
+
 from typing import Any
 
 from rich.console import Console, Group
 from rich.live import Live
 from rich.spinner import Spinner
+
+from agents import Agent, Runner
 
 
 class Printer:

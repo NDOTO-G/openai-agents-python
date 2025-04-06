@@ -3,10 +3,16 @@ from __future__ import annotations
 import asyncio
 import time
 from collections.abc import Sequence
+import sys
+from pathlib import Path
 
 from rich.console import Console
 
 from agents import Runner, RunResult, custom_span, gen_trace_id, trace
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent))
+import config  # This will load the API key
 
 from .agents.financials_agent import financials_agent
 from .agents.planner_agent import FinancialSearchItem, FinancialSearchPlan, planner_agent

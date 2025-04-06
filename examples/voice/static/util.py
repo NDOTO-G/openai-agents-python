@@ -1,9 +1,18 @@
 import curses
 import time
+import asyncio
+import sys
+from pathlib import Path
 
 import numpy as np
 import numpy.typing as npt
 import sounddevice as sd
+
+# Add the examples directory to Python path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+import config  # This will load the API key
+
+from agents import Agent, Runner
 
 
 def _record_audio(screen: curses.window) -> npt.NDArray[np.float32]:
